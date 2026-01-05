@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matías Schvabauer - Desarrollo Web & Stock</title>
+    <link rel="icon" href="https://images.icon-icons.com/288/PNG/128/Programming_30749.png" type="image/png">
+    <style>
+        :root {
+            --primary: #004aad;
+            --secondary: #0083ff;
+            --light: #f9f9f9;
+            --dark: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveBackground 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes moveBackground {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        header h1, header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            animation: slideIn 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        section {
+            padding: 3rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            animation: expandLine 1s ease-out;
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 50%; }
+        }
+
+        .servicios, .proyectos, .proyectos-proceso {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--secondary);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-left-color: var(--primary);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .proyectos-proceso img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
+            border: 2px solid #eaeaea;
+            transition: transform 0.3s ease;
+        }
+
+        .proyectos-proceso img:hover {
+            transform: scale(1.02);
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            position: relative;
+            display: inline-block;
+        }
+
+        a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+        }
+
+        a:hover::after {
+            width: 100%;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive para celular */
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .servicios, .proyectos, .proyectos-proceso {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .contact-icons {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .contact-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Efecto de aparición para elementos al hacer scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Matías Schvabauer</h1>
+        <p>Desarrollo Web & Sistemas de Gestión de Stock</p>
+    </header>
+
+    <section>
+        <h2>👨‍💻 Sobre mí</h2>
+        <p class="fade-in">Soy un estudiante avanzado de Ingeniería en Informática. Me especializo en crear páginas web modernas y sistemas de manejo de stock para negocios, con soluciones eficientes y adaptadas a cada necesidad.</p>
+    </section>
+
+    <section>
+        <h2>🛠️ Servicios</h2>
+        <div class="servicios">
+            <div class="card fade-in">
+                <h3>🌐 Páginas Web</h3>
+                <p>Diseño responsive, rápido y profesional para tu negocio.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>📦 Sistemas de Stock</h3>
+                <p>Programas personalizados para control de inventario.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>🔧 Soporte Técnico</h3>
+                <p>Mantenimiento, redes y optimización de sistemas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>💼 Proyectos Destacados</h2>
+        <div class="proyectos">
+            <div class="card fade-in">
+                <h3>Vibras Gálvez</h3>
+                <p>Página web realizada para un cliente.</p>
+                <a href="https://vibrasgalvez.online" target="_blank">Ver sitio →</a>
+            </div>
+            <div class="card fade-in">
+                <h3>GitHub</h3>
+                <p>Más proyectos y código fuente.</p>
+                <a href="https://github.com/Zike420" target="_blank">Visitar GitHub →</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>📸 Capturas de páginas ejemplo</h2>
+        <div class="proyectos-proceso">
+            <div class="card fade-in">
+                <h3>Página de Negocio</h3>
+                <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page1.png" 
+                     alt="Diseño de página para negocios">
+            </div>
+            <div class="card fade-in">
+                <h3>Página de Club</h3>
+                <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page2.png" 
+                     alt="Diseño de página para clubs">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>📞 Contacto</h2>
+        <p class="fade-in">¿Necesitás una página web o un sistema de stock? ¡Escribime!</p>
+        
+        <div class="contact-icons">
+            <a href="mailto:matiasschvabauer@gmail.com" title="Email">📧</a>
+            <a href="tel:+543404534477" title="Teléfono">📱</a>
+            <a href="https://github.com/matiasschvabauer/portafolio/blob/main/Schvabauer_MatiasCV.pdf" target="_blank" title="CV">📄</a>
+            <a href="https://github.com/matiasschvabauer" target="_blank" title="GitHub">💻</a>
+        </div>
+        
+        <div class="fade-in">
+            <p><strong>Email:</strong> <a href="mailto:matiasschvabauer@gmail.com">matiasschvabauer@gmail.com</a></p>
+            <p><strong>Teléfono:</strong> <a href="tel:+543404534477">+54 (3404) 53-4477</a></p>
+            <p><strong>Ver CV completo:</strong> <a href="https://github.com/matiasschvabauer/portafolio/blob/main/Schvabauer_MatiasCV.pdf" target="_blank">Descargar PDF</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Matías Schvabauer | Desarrollo a medida</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            fadeInOnScroll();
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
