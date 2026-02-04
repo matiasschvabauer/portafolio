@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matías Schvabauer - Desarrollo Web & Stock</title>
+    <meta name="description"
+        content="Portafolio de Matías Schvabauer - Desarrollo de Software y Soluciones Tecnológicas a Medida.">
+    <title>Matías Schvabauer | Soluciones Digitales</title>
     <link rel="icon" href="https://images.icon-icons.com/288/PNG/128/Programming_30749.png" type="image/png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --primary: #004aad;
-            --secondary: #0083ff;
-            --light: #f9f9f9;
-            --dark: #333;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -22,258 +35,339 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.7;
             overflow-x: hidden;
-            animation: fadeIn 0.8s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary);
+            line-height: 1.2;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Header / Hero */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            padding: 3rem 2rem;
-            text-align: center;
+            padding: 6rem 1.5rem 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes moveBackground {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        header h1, header p {
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            text-align: center;
         }
 
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            animation: slideIn 1s ease-out;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideUp 0.8s ease-out;
         }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+        header p.subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
         }
 
-        @keyframes slideIn {
-            from { transform: translateX(-20px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            animation: slideUp 0.8s ease-out 0.4s backwards;
         }
 
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
+        }
+
+        /* Decorative background elements */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .shape-1 {
+            top: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: #1d4ed8;
+        }
+
+        .shape-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: #7c3aed;
+        }
+
+        /* Sections */
         section {
-            padding: 3rem 1.5rem;
-            max-width: 1200px;
+            padding: 5rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        h2 {
-            color: var(--primary);
-            font-size: 2rem;
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--secondary);
             display: inline-block;
+            background: #eff6ff;
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Featured Projects (Management System) */
+        .featured-project {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-image {
+            background: #f1f5f9;
+            height: 100%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: var(--primary);
-            animation: expandLine 1s ease-out;
-        }
-
-        @keyframes expandLine {
-            from { width: 0; }
-            to { width: 50%; }
-        }
-
-        .servicios, .proyectos, .proyectos-proceso {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            border-left: 5px solid var(--secondary);
+        .project-image img {
+            width: 100%;
             height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .placeholder-image {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            color: #94a3b8;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-            border-left-color: var(--primary);
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+        .tag {
+            background: #eff6ff;
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
-        .card p {
-            flex-grow: 1;
-            margin-bottom: 1rem;
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
-        .proyectos-proceso img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 15px;
-            border: 2px solid #eaeaea;
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background: white;
             transition: transform 0.3s ease;
         }
 
-        .proyectos-proceso img:hover {
-            transform: scale(1.02);
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
-        a {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            position: relative;
-            display: inline-block;
-        }
-
-        a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary);
-        }
-
-        a:hover::after {
+        .gallery-item img {
             width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        footer {
-            background: var(--dark);
-            color: white;
+        .gallery-info {
+            padding: 1.5rem;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: white;
             text-align: center;
-            padding: 2rem;
+        }
+
+        .contact-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
             margin-top: 3rem;
         }
 
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .contact-icons a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
-            color: white;
-            border-radius: 50%;
-            font-size: 1.5rem;
+        .contact-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 16px;
+            flex: 1;
+            /* Allow cards to grow and sink equally */
+            min-width: 200px;
+            /* Reduced min-width to fit 4 on line */
             transition: all 0.3s ease;
         }
 
-        .contact-icons a:hover {
+        .contact-card:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .contact-card a {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
             background: var(--primary);
-            transform: translateY(-5px);
+            color: #94a3b8;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
-        /* Responsive para celular */
-        @media (max-width: 768px) {
-            header {
-                padding: 2rem 1rem;
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            section {
-                padding: 2rem 1rem;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-            }
-            
-            .servicios, .proyectos, .proyectos-proceso {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .card {
-                padding: 1.5rem;
-            }
-            
-            .contact-icons {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .contact-icons a {
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .card h3 {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Efecto de aparición para elementos al hacer scroll */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -284,117 +378,320 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .featured-project {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                min-height: 300px;
+            }
+
+            .about-grid {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Ajusta sin recortar si es necesario, o 'cover' para llenar */
+            object-position: center;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
     </style>
 </head>
+
 <body>
+
     <header>
-        <h1>Matías Schvabauer</h1>
-        <p>Desarrollo Web & Sistemas de Gestión de Stock</p>
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="header-content">
+            <h1>Matías Schvabauer</h1>
+            <p class="subtitle">Desarrollo de Software a medida</p>
+            <a href="#contacto" class="cta-button">Hablemos de tu proyecto</a>
+        </div>
     </header>
 
-    <section>
-        <h2>👨‍💻 Sobre mí</h2>
-        <p class="fade-in">Soy un estudiante avanzado de Ingeniería en Informática. Me especializo en crear páginas web modernas y sistemas de manejo de stock para negocios, con soluciones eficientes y adaptadas a cada necesidad.</p>
-    </section>
-
-    <section>
-        <h2>🛠️ Servicios</h2>
-        <div class="servicios">
-            <div class="card fade-in">
-                <h3>🌐 Páginas Web</h3>
-                <p>Diseño responsive, rápido y profesional para tu negocio.</p>
-            </div>
-            <div class="card fade-in">
-                <h3>📦 Sistemas de Stock</h3>
-                <p>Programas personalizados para control de inventario.</p>
-            </div>
-            <div class="card fade-in">
-                <h3>🔧 Soporte Técnico</h3>
-                <p>Mantenimiento, redes y optimización de sistemas.</p>
+    <section id="sobre-mi" class="container">
+        <div class="section-title">
+            <h2>Sobre Mí</h2>
+        </div>
+        <div class="about-grid fade-in">
+            <div class="about-text">
+                <p><strong>Estudiante avanzado de Ingeniería en Informática</strong> con una sólida pasión por la
+                    resolución de problemas reales a través de la tecnología.</p>
+                <p>Mi enfoque se centra en crear herramientas digitales que no solo funcionen, sino que optimicen
+                    procesos y aporten valor real a mis clientes. Desde sitios web institucionales con diseño impactante
+                    hasta <strong>sistemas de gestión complejos</strong> que centralizan las operaciones de tu negocio.
+                </p>
+                <p>Combino conocimientos técnicos robustos con una visión pragmática para entregar productos escalables
+                    y mantenibles.</p>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>💼 Proyectos Destacados</h2>
-        <div class="proyectos">
-            <div class="card fade-in">
-                <h3>Vibras Gálvez</h3>
-                <p>Página web realizada para un cliente.</p>
-                <a href="https://vibrasgalvez.online" target="_blank">Ver sitio →</a>
+    <section id="servicios" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mis Servicios</h2>
+                <p>Soluciones integrales adaptadas a tus necesidades</p>
             </div>
-            <div class="card fade-in">
-                <h3>GitHub</h3>
-                <p>Más proyectos y código fuente.</p>
-                <a href="https://github.com/Zike420" target="_blank">Visitar GitHub →</a>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <span class="service-icon">💻</span>
+                    <h3>Desarrollo Web Profesional</h3>
+                    <p>Diseño y desarrollo de sitios web modernos, responsivos y optimizados para SEO. Desde landing
+                        pages hasta portales corporativos que reflejan la identidad de tu marca.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">📊</span>
+                    <h3>Sistemas de Gestión</h3>
+                    <p>Software a medida para control de stock, facturación y administración de clientes. Centraliza tu
+                        información y toma decisiones basadas en datos reales.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🔧</span>
+                    <h3>Soporte & Consultoría</h3>
+                    <p>Asesoramiento técnico, mantenimiento de redes y optimización de infraestructura. Mantengo tus
+                        sistemas funcionando sin interrupciones.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🚀</span>
+                    <h3>Transformación Digital</h3>
+                    <p>Te ayudo a digitalizar tu negocio, integrando herramientas modernas para mejorar tu presencia
+                        online y eficiencia operativa.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">👨‍🏫</span>
+                    <h3>Capacitación en Programas</h3>
+                    <p>Entrenamiento detallado para el uso eficiente del software desarrollado. Aseguro que vos y tu
+                        equipo saquen el máximo provecho de las herramientas.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <span class="service-icon">🧩</span>
+                    <h3>Desarrollo Personalizado</h3>
+                    <p>Proyectos de software diseñados desde cero para cubrir necesidades específicas que las soluciones
+                        estándar no pueden resolver.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>📸 Capturas de páginas ejemplo</h2>
-        <div class="proyectos-proceso">
-            <div class="card fade-in">
-                <h3>Página de Negocio</h3>
-                <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page1.png" 
-                     alt="Diseño de página para negocios">
+    <section id="sistema-gestion" class="container">
+        <div class="section-title">
+            <h2>Sistemas Destacados</h2>
+        </div>
+        <!-- Featured Project: Sistema de Gestión -->
+        <div class="featured-project fade-in">
+            <div class="project-image">
+                <!-- Carousel System -->
+                <div class="carousel" id="systemCarousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Gestion1.png"
+                                alt="Sistema de Gestión - Vista Principal">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Gestion2.png"
+                                alt="Sistema de Gestión - Panel de Control">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Gestion3.png"
+                                alt="Sistema de Gestión - Reportes">
+                        </div>
+                    </div>
+                    <div class="carousel-indicators">
+                        <span class="indicator active" onclick="setSlide(0)"></span>
+                        <span class="indicator" onclick="setSlide(1)"></span>
+                        <span class="indicator" onclick="setSlide(2)"></span>
+                    </div>
+                </div>
             </div>
-            <div class="card fade-in">
-                <h3>Página de Club</h3>
-                <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page2.png" 
-                     alt="Diseño de página para clubs">
+            <div class="project-content">
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Escritorio</span>
+                </div>
+                <h3>Sistema Integral de Gestión de Stock</h3>
+                <p>Una solución robusta diseñada para PyMEs y comercios. Permite el control detallado de inventario,
+                    gestión de proveedores, reportes de ventas y alertas de stock bajo.</p>
+                <div style="margin-top: 1.5rem;">
+                    <p>✔️ Control de stock en tiempo real</p>
+                    <p>✔️ Reportes de ventas periódicos</p>
+                    <p>✔️ Interfaz intuitiva y segura</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2>📞 Contacto</h2>
-        <p class="fade-in">¿Necesitás una página web o un sistema de stock? ¡Escribime!</p>
-        
-        <div class="contact-icons">
-            <a href="mailto:matiasschvabauer@gmail.com" title="Email">📧</a>
-            <a href="tel:+543404534477" title="Teléfono">📱</a>
-            <a href="https://github.com/matiasschvabauer/portafolio/blob/main/Schvabauer_MatiasCV.pdf" target="_blank" title="CV">📄</a>
-            <a href="https://github.com/matiasschvabauer" target="_blank" title="GitHub">💻</a>
+    <section id="portafolio" style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Proyectos Web</h2>
+                <p>Algunos ejemplos y trabajos recientes</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page1.png"
+                        alt="Proyecto Negocio">
+                    <div class="gallery-info">
+                        <h3>Tienda Online</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Diseño limpio y profesional para negocios.</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page2.png"
+                        alt="Proyecto Club">
+                    <div class="gallery-info">
+                        <h3>Sitio Web Deportivo</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Plataforma dinámica para clubes y eventos.</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page3.png"
+                        alt="Vibras Gálvez">
+                    <div class="gallery-info">
+                        <h3>Vibras Gálvez</h3>
+                        <p style="font-size: 0.9rem; color: #64748b;">Proyecto en producción.</p>
+                        <a href="https://vibrasgalvez.online" target="_blank"
+                            style="color: var(--accent); font-size: 0.9rem; margin-top: 0.5rem; display: block;">Ver
+                            sitio →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="fade-in">
-            <p><strong>Email:</strong> <a href="mailto:matiasschvabauer@gmail.com">matiasschvabauer@gmail.com</a></p>
-            <p><strong>Teléfono:</strong> <a href="tel:+543404534477">+54 (3404) 53-4477</a></p>
-            <p><strong>Ver CV completo:</strong> <a href="https://github.com/matiasschvabauer/portafolio/blob/main/Schvabauer_MatiasCV.pdf" target="_blank">Descargar PDF</a></p>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Empecemos a trabajar juntos</h2>
+                <p>¿Tenés una idea en mente? Contactame y la hacemos realidad.</p>
+            </div>
+
+            <div class="contact-cards fade-in">
+                <div class="contact-card" style="cursor: pointer;" onclick="copyEmail(this)">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📧</div>
+                    <h3>Email</h3>
+                    <span style="font-size: 0.8rem; color: var(--accent);">Click para copiar</span>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📱</div>
+                    <h3>Teléfono / WhatsApp</h3>
+                    <p><a href="tel:+543404534477">+54 (3404) 53-4477</a></p>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📄</div>
+                    <h3>Curriculum Vitae</h3>
+                    <p><a href="https://github.com/matiasschvabauer/portafolio/blob/main/Schvabauer_MatiasCV.pdf"
+                            target="_blank">Ver PDF Completo</a></p>
+                </div>
+                <div class="contact-card">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">💻</div>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/Zike420" target="_blank">Explorar Código</a></p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Matías Schvabauer | Desarrollo a medida</p>
+        <p>© 2026 Matías Schvabauer. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 100) {
-                        element.classList.add('visible');
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animación de aparición al hacer scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
                     }
                 });
-            };
-            
-            fadeInOnScroll();
-            
-            window.addEventListener('scroll', fadeInOnScroll);
-            
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Smooth scrolling para enlaces internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
                     const targetElement = document.querySelector(targetId);
+
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
@@ -403,7 +700,65 @@
                     }
                 });
             });
+
+            // Carousel Logic
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.carousel-item');
+            const indicators = document.querySelectorAll('.indicator');
+            const intervalTime = 4000; // 4 segundos
+
+            function showSlide(index) {
+                // Reset bounds
+                if (index >= slides.length) slideIndex = 0;
+                else if (index < 0) slideIndex = slides.length - 1;
+                else slideIndex = index;
+
+                // Remove active classes
+                slides.forEach(slide => slide.classList.remove('active'));
+                indicators.forEach(ind => ind.classList.remove('active'));
+
+                // Add active classes
+                slides[slideIndex].classList.add('active');
+                indicators[slideIndex].classList.add('active');
+            }
+
+            window.setSlide = function (index) {
+                showSlide(index);
+                // Reset timer on manual click
+                resetTimer();
+            };
+
+            function nextSlide() {
+                showSlide(slideIndex + 1);
+            }
+
+            let slideInterval = setInterval(nextSlide, intervalTime);
+
+            function resetTimer() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, intervalTime);
+            }
         });
+
+        function copyEmail(cardElement) {
+            const email = "matiasschvabauer@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const originalText = cardElement.querySelector('span').innerText;
+                const spanElement = cardElement.querySelector('span');
+
+                spanElement.innerText = "¡Email Copiado!";
+                spanElement.style.color = "#10b981"; // Green color
+
+                setTimeout(() => {
+                    spanElement.innerText = "Click para copiar";
+                    spanElement.style.color = "var(--accent)";
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
+        }
     </script>
 </body>
+
 </html>
+
