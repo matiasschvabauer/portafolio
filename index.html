@@ -442,6 +442,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         .glow-icon {
@@ -673,7 +674,21 @@
         }
 
         body.perf-low .hero {
-            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            background: linear-gradient(135deg, #0f172a 15%, rgba(16, 185, 129, 0.15) 45%, #0f172a 60%, rgba(236, 72, 153, 0.12) 80%, #0f172a 100%);
+            background-size: 300% 300%;
+            animation: wavyGradient 18s ease infinite;
+        }
+
+        @keyframes wavyGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Lightbox Styles */
@@ -925,14 +940,20 @@
                     <div class="customer-logo" data-name="Mariño"><img src="Mariño.png" alt="Mariño"></div>
                     <div class="customer-logo" data-name="Minimercado Pachi"><img src="Minimercado Pachi.png" alt="Minimercado Pachi"></div>
                     <div class="customer-logo" data-name="Kiosco Saturno"><img src="Kiosco Saturno.png" alt="Kiosco Saturno"></div>
-                    <div class="customer-logo" data-name="Kiosco Fanti's"><img src="Kiosco Fanti's.png" alt="Kiosco Fanti's"></div>
+                    <div class="customer-logo" data-name="Kiosco Fanti's"><img src="Kiosco Fanti'sv01.png" alt="Kiosco Fanti's"></div>
                     <div class="customer-logo" data-name="Super Mora"><img src="Super Mora.png" alt="Super Mora"></div>
+                    <div class="customer-logo" data-name="Almacén Cóndor"><img src="CondorLogoTicket.png" alt="Almacén Cóndor"></div>
+                    <div class="customer-logo" data-name="Distribuidora El Gato"><img src="icongato.ico" alt="Distribuidora El Gato"></div>
+                    <div class="customer-logo" data-name="Casa Druetto"><img src="casadruettologo1.png" alt="Casa Druetto"></div>
                     <!-- Duplicated for infinite loop -->
                     <div class="customer-logo" data-name="Mariño"><img src="Mariño.png" alt="Mariño"></div>
                     <div class="customer-logo" data-name="Minimercado Pachi"><img src="Minimercado Pachi.png" alt="Minimercado Pachi"></div>
                     <div class="customer-logo" data-name="Kiosco Saturno"><img src="Kiosco Saturno.png" alt="Kiosco Saturno"></div>
-                    <div class="customer-logo" data-name="Kiosco Fanti's"><img src="Kiosco Fanti's.png" alt="Kiosco Fanti's"></div>
+                    <div class="customer-logo" data-name="Kiosco Fanti's"><img src="Kiosco Fanti'sv01.png" alt="Kiosco Fanti's"></div>
                     <div class="customer-logo" data-name="Super Mora"><img src="Super Mora.png" alt="Super Mora"></div>
+                    <div class="customer-logo" data-name="Almacén Cóndor"><img src="CondorLogoTicket.png" alt="Almacén Cóndor"></div>
+                    <div class="customer-logo" data-name="Distribuidora El Gato"><img src="icongato.ico" alt="Distribuidora El Gato"></div>
+                    <div class="customer-logo" data-name="Casa Druetto"><img src="casadruettologo1.png" alt="Casa Druetto"></div>
                 </div>
             </div>
         </section>
