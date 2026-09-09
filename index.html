@@ -767,6 +767,175 @@
                 padding: 1rem;
             }
         }
+
+        /* Mobile Phone Mockup Styles */
+        .mobile-mockup-wrapper {
+            position: relative;
+            width: 250px;
+            height: 510px;
+            margin: 1.5rem auto;
+            background: #090d16;
+            border-radius: 40px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 0 3px rgba(255, 255, 255, 0.1), 0 0 25px rgba(16, 185, 129, 0.18);
+            padding: 9px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-mockup-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mobile-mockup-screen .carousel {
+            border-radius: 32px !important;
+            height: 100% !important;
+            width: 100% !important;
+            min-height: auto !important;
+        }
+
+        .mobile-mockup-screen .carousel-inner {
+            height: 100%;
+        }
+
+        .mobile-mockup-screen .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 32px;
+        }
+
+        .mobile-mockup-screen .carousel-control {
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .mobile-mockup-screen .carousel-control.prev {
+            left: 8px;
+        }
+
+        .mobile-mockup-screen .carousel-control.next {
+            right: 8px;
+        }
+
+        .mobile-mockup-screen .carousel-indicators {
+            bottom: 12px;
+            gap: 6px;
+        }
+
+        .mobile-mockup-screen .indicator {
+            width: 7px;
+            height: 7px;
+        }
+
+        /* E-Commerce & Channels Styles */
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .channel-card-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            gap: 1.25rem;
+        }
+
+        .floating-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-logo-bubble {
+            width: 62px;
+            height: 62px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            animation: floatSlow 4s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .floating-logo-bubble:hover {
+            transform: scale(1.12) translateY(-6px);
+        }
+
+        .floating-logo-bubble.meli {
+            animation-delay: 0s;
+            border-color: rgba(255, 230, 0, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 230, 0, 0.15);
+        }
+
+        .floating-logo-bubble.meta-fb {
+            animation-delay: 0.4s;
+            border-color: rgba(24, 119, 242, 0.4);
+            box-shadow: 0 10px 25px rgba(24, 119, 242, 0.2);
+        }
+
+        .floating-logo-bubble.meta-ig {
+            animation-delay: 0.8s;
+            border-color: rgba(225, 48, 108, 0.4);
+            box-shadow: 0 10px 25px rgba(225, 48, 108, 0.2);
+        }
+
+        .floating-logo-bubble.meta-wsp {
+            animation-delay: 1.2s;
+            border-color: rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.2);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(2deg);
+            }
+        }
+
+        .channel-badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+        }
+
+        .channel-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--verde-matriz);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            font-weight: 500;
+        }
+
+        .channel-checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 
@@ -1064,6 +1233,196 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sistema Mariano Revestimientos -->
+            <div class="glow-card-wrapper" style="margin-top: 2rem;">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; min-height: 400px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="MarianoRevestimiento1.png" alt="Mariano Revestimientos 1" loading="lazy"></div>
+                                <div class="carousel-item"><img src="MarianoRevestimiento2.png" alt="Mariano Revestimientos 2" loading="lazy"></div>
+                            </div>
+                            <div class="carousel-indicators">
+                                <span class="indicator active"></span>
+                                <span class="indicator"></span>
+                            </div>
+                            <button class="carousel-control prev">&lsaquo;</button>
+                            <button class="carousel-control next">&rsaquo;</button>
+                        </div>
+                    </div>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Python</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">SQL</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Presupuestos</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Gestión</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">Sistema de generador y control de presupuesto</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Desarrollo especializado para <strong>Mariano Revestimientos</strong>. Permite el cómputo automatizado de materiales para construcción en seco, cálculo ágil de costos, gestión de clientes y generación instantánea de cotizaciones profesionales.</p>
+                        <div style="color: #94a3b8; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p>✔️ Cómputo exacto de materiales, perfilería y accesorios</p>
+                            <p>✔️ Generación instantánea de presupuestos detallados</p>
+                            <p>✔️ Historial de cotizaciones, estados y seguimiento comercial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="apps-celular" class="content-section">
+            <h2 class="section-title">Apps de <span>Celular</span></h2>
+
+            <!-- App 1: Sistema de Gestión y Control de Negocio -->
+            <div class="glow-card-wrapper" style="margin-bottom: 2rem;">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.25); position: relative; display: flex; align-items: center; justify-content: center; min-height: 480px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="mobile-mockup-wrapper">
+                            <div class="mobile-mockup-screen">
+                                <div class="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img src="Saturno1.jpeg" alt="Sistema de Gestión y Control de Negocio 1" loading="lazy"></div>
+                                        <div class="carousel-item"><img src="Saturno2.jpeg" alt="Sistema de Gestión y Control de Negocio 2" loading="lazy"></div>
+                                        <div class="carousel-item"><img src="Saturno3.jpeg" alt="Sistema de Gestión y Control de Negocio 3" loading="lazy"></div>
+                                        <div class="carousel-item"><img src="Saturno4.jpeg" alt="Sistema de Gestión y Control de Negocio 4" loading="lazy"></div>
+                                    </div>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <button class="carousel-control prev">&lsaquo;</button>
+                                    <button class="carousel-control next">&rsaquo;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">App Móvil</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Gestión</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Android</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Cloud</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">Sistema de gestión y control de negocio</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Aplicación móvil completa para monitorear y administrar las operaciones del comercio en tiempo real. Permite supervisar ventas del día, consultar stock disponible, registrar movimientos y tener el control total del negocio al alcance de la mano.</p>
+                        <div style="color: #94a3b8; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p>✔️ Monitoreo de ventas y facturación en tiempo real</p>
+                            <p>✔️ Control, auditoría y alertas de stock desde el celular</p>
+                            <p>✔️ Reportes de rendimiento diario y estado de caja</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App 2: Stock y ventas para vendedores de calle -->
+            <div class="glow-card-wrapper" style="margin-bottom: 2rem;">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.25); position: relative; display: flex; align-items: center; justify-content: center; min-height: 480px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="mobile-mockup-wrapper">
+                            <div class="mobile-mockup-screen">
+                                <div class="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img src="Saturno5.jpeg" alt="Stock y ventas para vendedores de calle 1" loading="lazy"></div>
+                                        <div class="carousel-item"><img src="Saturno6.jpeg" alt="Stock y ventas para vendedores de calle 2" loading="lazy"></div>
+                                    </div>
+                                    <div class="carousel-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <button class="carousel-control prev">&lsaquo;</button>
+                                    <button class="carousel-control next">&rsaquo;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Ventas de Calle</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Preventa</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Stock Móvil</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Sincronización</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">Stock y ventas para vendedores de calle</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Solución móvil creada específicamente para preventistas y fuerza de ventas en ruta. Facilita la toma de pedidos ágil frente al cliente, consulta de catálogo con precios y stock actualizado, y envío instantáneo de pedidos a la central.</p>
+                        <div style="color: #94a3b8; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p>✔️ Carga inmediata de pedidos en el punto de venta</p>
+                            <p>✔️ Catálogo interactivo con stock y listas de precios</p>
+                            <p>✔️ Sincronización transparente con la base de datos central</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App 3: Mariano Revestimientos - App para generar y controlar presupuestos -->
+            <div class="glow-card-wrapper">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.25); position: relative; display: flex; align-items: center; justify-content: center; min-height: 480px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="mobile-mockup-wrapper">
+                            <div class="mobile-mockup-screen">
+                                <div class="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img src="MarianoRevestimientoCelular.jpeg" alt="Mariano Revestimientos Celular" loading="lazy"></div>
+                                    </div>
+                                    <div class="carousel-indicators" style="display: none;">
+                                        <span class="indicator active"></span>
+                                    </div>
+                                    <button class="carousel-control prev" style="display: none;">&lsaquo;</button>
+                                    <button class="carousel-control next" style="display: none;">&rsaquo;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">App Móvil</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Presupuestos</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Revestimientos</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Cotizador</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">App para generar y controlar presupuestos</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Desarrollada para <strong>Mariano Revestimientos</strong>. Permite generar presupuestos de forma rápida y precisa directamente desde el celular en obras o visitas a clientes, computando materiales y enviando cotizaciones con agilidad.</p>
+                        <div style="color: #94a3b8; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p>✔️ Cotización directa en obra o visita frente al cliente</p>
+                            <p>✔️ Cómputo inteligente de placas, perfiles y accesorios</p>
+                            <p>✔️ Envío ágil de cotizaciones y control de propuestas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="portafolio" class="content-section">
@@ -1160,34 +1519,251 @@
                 </div>
             </div>
 
-            <h3 class="section-title" style="font-size: 1.8rem; margin-top: 5rem;">Otros proyectos <span>Web</span></h3>
-            <ul class="glowing-grid">
-                <li class="glow-card-wrapper">
-                    <div class="glow-effect-border"></div>
-                    <div class="glow-card-content" style="padding: 0; overflow: hidden; gap: 0;">
-                        <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page1.png"
-                            style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid rgba(255,255,255,0.05);"
-                            alt="Proyecto Negocio" loading="lazy">
-                        <div style="padding: 1.5rem;">
-                            <h3 class="glow-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Tienda Online</h3>
-                            <p class="glow-desc">Diseño limpio y profesional para negocios.</p>
+            <!-- Web Agroguardati -->
+            <div class="glow-card-wrapper" style="margin-bottom: 2rem;">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; min-height: 400px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="Agroguardatiweb1.png" alt="Agroguardati 1" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Agroguardatiweb2.png" alt="Agroguardati 2" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Agroguardatiweb3.png" alt="Agroguardati 3" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Agroguardatiweb4.png" alt="Agroguardati 4" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Agroguardatiweb5.png" alt="Agroguardati 5" loading="lazy"></div>
+                            </div>
+                            <div class="carousel-indicators">
+                                <span class="indicator active"></span>
+                                <span class="indicator"></span>
+                                <span class="indicator"></span>
+                                <span class="indicator"></span>
+                                <span class="indicator"></span>
+                            </div>
+                            <button class="carousel-control prev">&lsaquo;</button>
+                            <button class="carousel-control next">&rsaquo;</button>
                         </div>
                     </div>
-                </li>
-                <li class="glow-card-wrapper">
-                    <div class="glow-effect-border"></div>
-                    <div class="glow-card-content" style="padding: 0; overflow: hidden; gap: 0;">
-                        <img src="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/Page2.png"
-                            style="width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid rgba(255,255,255,0.05);"
-                            alt="Proyecto Club" loading="lazy">
-                        <div style="padding: 1.5rem;">
-                            <h3 class="glow-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Sitio Web Deportivo
-                            </h3>
-                            <p class="glow-desc">Plataforma dinámica para clubes y eventos.</p>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Web Design</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Agro</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Corporativo</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Catálogo</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">Agroguardati - Soluciones para el Agro</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Sitio web institucional y comercial para empresa especializada en maquinaria, insumos y servicios agropecuarios. Catálogo interactivo de productos, diseño de alto impacto adaptado a cualquier dispositivo y canales ágiles de contacto directo para productores agrícolas.</p>
+                        <a href="https://agroguardati.com.ar" target="_blank" class="glow-desc"
+                            style="color: var(--verde-matriz); margin-top: auto;">Visitar agroguardati.com.ar →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Casa Druetto -->
+            <div class="glow-card-wrapper">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; min-height: 400px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="Casadruettoweb1.png" alt="Casa Druetto 1" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Casadruettoweb2.png" alt="Casa Druetto 2" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Casadruettoweb3.png" alt="Casa Druetto 3" loading="lazy"></div>
+                                <div class="carousel-item"><img src="Casadruettoweb4.png" alt="Casa Druetto 4" loading="lazy"></div>
+                            </div>
+                            <div class="carousel-indicators">
+                                <span class="indicator active"></span>
+                                <span class="indicator"></span>
+                                <span class="indicator"></span>
+                                <span class="indicator"></span>
+                            </div>
+                            <button class="carousel-control prev">&lsaquo;</button>
+                            <button class="carousel-control next">&rsaquo;</button>
                         </div>
                     </div>
-                </li>
-            </ul>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Web Design</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Agroindustria</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">E-Commerce</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Maquinaria & Repuestos</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">Casa Druetto - Maquinaria y Soluciones para el Agro</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Plataforma de e-commerce y catálogo digital para empresa con más de 75 años de trayectoria en el sector agropecuario. Venta online de maquinaria agrícola, agricultura de precisión, repuestos, accesorios y drones DJI, con carrito de compras, catálogo dinámico y envíos a todo el país.</p>
+                        <a href="https://casadruetto.com.ar" target="_blank" class="glow-desc"
+                            style="color: var(--verde-matriz); margin-top: auto;">Visitar casadruetto.com.ar →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ecommerce-canales" class="content-section">
+            <h2 class="section-title">E-Commerce & <span>Canales Digitales</span></h2>
+            <p style="text-align: center; max-width: 750px; margin: -1rem auto 3rem; color: #94a3b8; font-size: 1.1rem;">
+                Configuración y puesta en marcha integral para empezar a vender por internet, armar catálogo comercial, publicitar y potenciar tus canales de venta.
+            </p>
+
+            <div class="channels-grid">
+                <!-- Mercado Libre -->
+                <div class="glow-card-wrapper">
+                    <div class="glow-effect-border"></div>
+                    <div class="glow-card-content channel-card-content">
+                        <div>
+                            <div class="floating-badge-container">
+                                <div class="floating-logo-bubble meli">
+                                    <img src="MLlogo1.png" alt="Mercado Libre" style="width: 44px; height: 44px; object-fit: contain;" loading="lazy">
+                                </div>
+                                <div>
+                                    <h3 class="glow-title" style="font-size: 1.35rem;">Mercado Libre</h3>
+                                    <span style="font-size: 0.85rem; color: #FFE600; font-weight: 500;">Configuración & Puesta en Marcha</span>
+                                </div>
+                            </div>
+
+                            <p class="glow-desc" style="margin-bottom: 1.5rem;">
+                                Puesta en marcha completa de tu cuenta comercial para comenzar a vender tus productos en la plataforma de e-commerce líder con la máxima eficiencia.
+                            </p>
+
+                            <div class="channel-checklist" style="margin-bottom: 1.5rem;">
+                                <p>✔️ <strong>Puesta en marcha y activación:</strong> Configuración de cuenta vendedora, medios de cobro y formalización.</p>
+                                <p>✔️ <strong>Publicaciones optimizadas:</strong> Títulos persuasivos con SEO interno, fichas técnicas completas y carga de variantes.</p>
+                                <p>✔️ <strong>Logística integrada:</strong> Configuración de Mercado Envíos, embalajes, puntos de despacho y tiempos de entrega.</p>
+                                <p>✔️ <strong>Estrategia de reputación:</strong> Asesoramiento para conseguir las primeras ventas y posicionar tu cuenta con medallas verdes.</p>
+                            </div>
+                        </div>
+
+                        <div class="channel-badge-list">
+                            <span class="channel-badge">Puesta a Punto</span>
+                            <span class="channel-badge">SEO en Publicaciones</span>
+                            <span class="channel-badge">Mercado Envíos</span>
+                            <span class="channel-badge">Mercado Pago</span>
+                            <span class="channel-badge">Impulso de Ventas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meta Business Suite (Facebook, Instagram & WhatsApp) -->
+                <div class="glow-card-wrapper">
+                    <div class="glow-effect-border"></div>
+                    <div class="glow-card-content channel-card-content">
+                        <div>
+                            <div class="floating-badge-container">
+                                <!-- Facebook Icon -->
+                                <div class="floating-logo-bubble meta-fb" title="Facebook">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#1877F2">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                </div>
+                                <!-- Instagram Icon -->
+                                <div class="floating-logo-bubble meta-ig" title="Instagram">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                                        <rect width="24" height="24" rx="6" fill="url(#ig-grad)"/>
+                                        <path d="M12 7.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.92A3.12 3.12 0 1 1 15.12 12 3.12 3.12 0 0 1 12 15.12zm5.28-8.28a1.12 1.12 0 1 1-1.12 1.12 1.12 1.12 0 0 1 1.12-1.12z" fill="#fff"/>
+                                        <defs>
+                                            <radialGradient id="ig-grad" cx="20%" cy="100%" r="150%">
+                                                <stop offset="0%" stop-color="#fdf497"/>
+                                                <stop offset="5%" stop-color="#fdf497"/>
+                                                <stop offset="45%" stop-color="#fd5949"/>
+                                                <stop offset="60%" stop-color="#d6249f"/>
+                                                <stop offset="90%" stop-color="#285AEB"/>
+                                            </radialGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <!-- WhatsApp Icon -->
+                                <div class="floating-logo-bubble meta-wsp" title="WhatsApp Business">
+                                    <svg width="28" height="28" viewBox="0 0 16 16" fill="#25D366">
+                                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <h3 class="glow-title" style="font-size: 1.35rem; margin-bottom: 0.5rem;">Meta Business (Facebook, Instagram & WhatsApp)</h3>
+                            <p class="glow-desc" style="margin-bottom: 1.5rem;">
+                                Conexión y sincronización del ecosistema de Meta para atraer clientes, exhibir productos con carrito de compras y cerrar ventas directas.
+                            </p>
+
+                            <div class="channel-checklist" style="margin-bottom: 1.5rem;">
+                                <p>✔️ <strong>Catálogo y Carrito en IG / Facebook:</strong> Vinculación de Meta Business Suite, carga de catálogo y activación de tienda online con carrito.</p>
+                                <p>✔️ <strong>WhatsApp Business Profesional:</strong> Perfil de empresa, catálogo interactivo con precios, mensajes de bienvenida y respuestas automáticas.</p>
+                                <p>✔️ <strong>Publicidad Digital (Meta Ads):</strong> Armado y segmentación de campañas publicitarias iniciales para captar clientes en tu zona o país.</p>
+                                <p>✔️ <strong>Optimización de publicaciones:</strong> Mejora de formatos, llamadas a la acción (CTA) y enlaces directos a WhatsApp para acelerar conversiones.</p>
+                            </div>
+                        </div>
+
+                        <div class="channel-badge-list">
+                            <span class="channel-badge">Meta Business Suite</span>
+                            <span class="channel-badge">Tienda & Carrito IG/FB</span>
+                            <span class="channel-badge">WhatsApp Business</span>
+                            <span class="channel-badge">Campañas Meta Ads</span>
+                            <span class="channel-badge">Publicaciones Vendedoras</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proximos-proyectos" class="content-section">
+            <h2 class="section-title">Próximos <span>Proyectos</span></h2>
+            <p style="text-align: center; max-width: 700px; margin: -1rem auto 3rem; color: #94a3b8; font-size: 1.1rem;">
+                Innovación continua y desarrollos actualmente en fase de diseño e implementación activa.
+            </p>
+
+            <div class="glow-card-wrapper">
+                <div class="glow-effect-border"></div>
+                <div class="glow-card-content featured-grid"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0;">
+                    <div style="background: rgba(0,0,0,0.25); position: relative; display: flex; align-items: center; justify-content: center; min-height: 480px; padding: 2rem;"
+                        class="carousel-container">
+                        <div class="mobile-mockup-wrapper">
+                            <div class="mobile-mockup-screen">
+                                <div class="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img src="Evolucion.jpeg" alt="Evolución - App en Progreso" loading="lazy"></div>
+                                    </div>
+                                    <div class="carousel-indicators" style="display: none;">
+                                        <span class="indicator active"></span>
+                                    </div>
+                                    <button class="carousel-control prev" style="display: none;">&lsaquo;</button>
+                                    <button class="carousel-control next" style="display: none;">&rsaquo;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="featured-text-container"
+                        style="padding: 3rem 3rem 3rem 2rem; display: flex; flex-direction: column; justify-content: center;">
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <span
+                                style="background: rgba(236, 72, 153, 0.15); color: var(--rosa-neon); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(236, 72, 153, 0.3); font-weight: 600;">⚡ En Progreso</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">App Móvil</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">UI / UX</span>
+                            <span
+                                style="background: rgba(16, 185, 129, 0.1); color: var(--verde-matriz); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid rgba(16, 185, 129, 0.2);">Próximamente</span>
+                        </div>
+                        <h3 class="glow-title" style="margin-bottom: 1rem;">Evolución - App en Progreso</h3>
+                        <p class="glow-desc" style="margin-bottom: 1.5rem;">Nueva solución móvil actualmente en desarrollo activo. Diseñada con una arquitectura ágil y una interfaz intuitiva pensada para optimizar flujos de trabajo, seguimiento y gestión con alta velocidad y fluidez.</p>
+                        <div style="color: #94a3b8; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <p>✔️ Interfaz moderna centrada en la experiencia de usuario (UX)</p>
+                            <p>✔️ Arquitectura escalable y sincronización inteligente</p>
+                            <p>✔️ Etapa actual de testeo, refinamiento y próximo lanzamiento</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="contacto" class="content-section" style="text-align: center;">
@@ -1447,6 +2023,7 @@
 
                 function startInterval() {
                     stopInterval();
+                    if (items.length <= 1) return;
                     interval = setInterval(() => show(current + 1), 5000);
                 }
                 function stopInterval() { clearInterval(interval); }
