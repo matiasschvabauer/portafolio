@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Matías Schvabauer | Web & Software Developer</title>
+
+    <!-- SEO Optimization -->
+    <meta name="description" content="Portafolio móvil de Matías Schvabauer, Desarrollador Web y Programador. Sistemas de gestión, apps móviles y soluciones web a medida.">
+    <meta name="author" content="Matías Schvabauer">
+    <link rel="canonical" href="https://matiasschvabauer.site/">
+    <link rel="icon" href="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://matiasschvabauer.site/">
+    <meta property="og:title" content="Matías Schvabauer | Web & Software Developer">
+    <meta property="og:description" content="Sistemas de gestión, aplicaciones móviles y desarrollo web profesional a medida.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/matiasschvabauer/portafolio/refs/heads/main/LogoNuevo.png">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- PC Redirection Script -->
+    <script>
+        if (!window.location.search.includes('force=mobile')) {
+            if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth > 768) {
+                window.location.href = "index.html" + window.location.search + window.location.hash;
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --negro-void: #0B1120;
+            --negro-superficie: #111827;
+            --verde-matriz: #10B981;
+            --verde-glow: rgba(16, 185, 129, 0.25);
+            --rosa-neon: #EC4899;
+            --rosa-glow: rgba(236, 72, 153, 0.25);
+            --blanco-limpio: #FFFFFF;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --text-subtle: #64748B;
+            --card-bg: rgba(17, 24, 39, 0.72);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-border-active: rgba(16, 185, 129, 0.35);
+            --radius-md: 1rem;
+            --radius-lg: 1.25rem;
+            --radius-pill: 9999px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            background-color: var(--negro-void);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Ambient Dynamic Background Canvas (Agroguardati-style ultra-lightweight smooth waves) */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        .ambient-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 65%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
+        }
+
+        /* Page Content Wrapper */
+        .page-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            padding-bottom: 5rem;
+        }
+
+        /* Top Mobile Sticky Navbar */
+        .mobile-nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+        }
+
+        .nav-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid var(--verde-matriz);
+            object-fit: cover;
+            box-shadow: 0 0 10px var(--verde-glow);
+        }
+
+        .nav-title {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--blanco-limpio);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-role {
+            font-size: 0.72rem;
+            color: var(--verde-matriz);
+            font-weight: 500;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--verde-matriz), #059669);
+            color: var(--blanco-limpio);
+            text-decoration: none;
+            padding: 0.45rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+        }
+
+        /* Quick Category Pills Slider */
+        .category-bar-wrapper {
+            position: sticky;
+            top: 59px;
+            z-index: 95;
+            background: rgba(11, 17, 32, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 0.75rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .category-bar-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-bar {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .category-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.35rem 0.75rem;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .category-pill i {
+            font-size: 0.75rem;
+        }
+
+        .category-pill:active, .category-pill.active {
+            background: rgba(16, 185, 129, 0.18);
+            border-color: var(--verde-matriz);
+            color: var(--verde-matriz);
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        /* Hero Mobile */
+        .hero-mobile {
+            padding: 2.2rem 1rem 1.8rem;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--verde-matriz);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-pill);
+            margin-bottom: 1.2rem;
+        }
+
+        .status-badge .dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--verde-matriz);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--verde-matriz);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.8); }
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.15;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #10B981 0%, #EC4899 50%, #10B981 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #cbd5e1;
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+
+        .hero-tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tech-pill {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #94a3b8;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-pill);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, var(--verde-matriz), var(--rosa-neon));
+            color: var(--blanco-limpio);
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.85rem 1.5rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .btn-main:active {
+            transform: scale(0.97);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--blanco-limpio);
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Section Styling */
+        .section-mobile {
+            padding: 2.2rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 0 0.25rem;
+        }
+
+        .section-title-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .section-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--verde-matriz);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .section-heading {
+            font-size: 1.45rem;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            color: var(--blanco-limpio);
+            line-height: 1.2;
+        }
+
+        .section-heading span {
+            color: var(--verde-matriz);
+        }
+
+        .section-counter {
+            font-size: 0.75rem;
+            color: var(--text-subtle);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.55rem;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+        }
+
+        /* Global Accordion Card Structure */
+        .cards-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .m-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            overflow: hidden;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .m-card.is-open {
+            border-color: var(--card-border-active);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Card Header (Always Visible & Interactive) */
+        .m-card-header {
+            padding: 1rem 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .m-card-header-main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .m-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .m-tag {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--verde-matriz);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: var(--radius-pill);
+        }
+
+        .m-tag.pink {
+            background: rgba(236, 72, 153, 0.12);
+            color: var(--rosa-neon);
+            border-color: rgba(236, 72, 153, 0.25);
+        }
+
+        .m-tag.amber {
+            background: rgba(245, 158, 11, 0.12);
+            color: #F59E0B;
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .m-card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--blanco-limpio);
+            line-height: 1.3;
+            margin-bottom: 0.2rem;
+            white-space: normal;
+        }
+
+        .m-card-snippet {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Toggle Button with Chevron Arrow */
+        .m-toggle-btn {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .m-card.is-open .m-toggle-btn {
+            transform: rotate(180deg);
+            background: var(--verde-matriz);
+            border-color: var(--verde-matriz);
+            color: #042f22;
+            box-shadow: 0 0 12px var(--verde-glow);
+        }
+
+        /* Expandable Accordion Body */
+        .m-card-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .m-card.is-open .m-card-body {
+            grid-template-rows: 1fr;
+        }
+
+        .m-card-body-inner {
+            overflow: hidden;
+            padding: 0 1.1rem;
+            opacity: 0;
+            transition: opacity 0.25s ease, padding 0.35s ease;
+        }
+
+        .m-card.is-open .m-card-body-inner {
+            padding: 0.25rem 1.1rem 1.25rem 1.1rem;
+            opacity: 1;
+        }
+
+        .m-card-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+            margin-bottom: 1rem;
+        }
+
+        /* Description & Checklist */
+        .m-card-desc {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            line-height: 1.55;
+            margin-bottom: 1rem;
+        }
+
+        .m-checklist {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-bottom: 1rem;
+        }
+
+        .m-checklist li {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .m-checklist li i {
+            color: var(--verde-matriz);
+            font-size: 0.85rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        /* Carousel inside Card */
+        .m-carousel {
+            position: relative;
+            width: 100%;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1rem;
+            aspect-ratio: 16 / 10;
+        }
+
+        .m-carousel.phone-aspect {
+            aspect-ratio: 9 / 14;
+            max-width: 250px;
+            margin: 0 auto 1rem auto;
+        }
+
+        .m-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.35s ease;
+        }
+
+        .m-carousel-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .m-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: zoom-in;
+        }
+
+        .m-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            z-index: 5;
+            cursor: pointer;
+        }
+
+        .m-carousel-btn.prev { left: 8px; }
+        .m-carousel-btn.next { right: 8px; }
+
+        .m-carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            z-index: 5;
+        }
+
+        .m-carousel-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: all 0.2s;
+        }
+
+        .m-carousel-dot.active {
+            background: var(--verde-matriz);
+            width: 16px;
+            border-radius: 4px;
+        }
+
+        .tap-zoom-hint {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.65);
+            color: #e2e8f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        /* Action Link inside Card */
+        .m-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--verde-matriz);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.5rem 0.85rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-pill);
+            margin-top: 0.25rem;
+        }
+
+        /* Services Grid (Compact 2 columns on mobile) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 1rem 0.85rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .service-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 0.75rem;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: var(--verde-matriz);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .service-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--blanco-limpio);
+            line-height: 1.25;
+        }
+
+        .service-desc {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* Infinite Logos Slider */
+        .logos-slider-wrap {
+            position: relative;
+            overflow: hidden;
+            padding: 0.5rem 0;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+
+        .logos-track {
+            display: flex;
+            width: max-content;
+            gap: 2rem;
+            animation: logosScroll 25s linear infinite;
+        }
+
+        .logo-item {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(0.85) opacity(0.65);
+        }
+
+        .logo-item img {
+            max-height: 38px;
+            max-width: 110px;
+            object-fit: contain;
+        }
+
+        @keyframes logosScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Floating Channels Badges */
+        .channel-logos-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .channel-bubble {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .channel-bubble.meli {
+            background: #FFE600;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+            margin-top: 1rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 1.1rem 0.75rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contact-card:active {
+            transform: scale(0.96);
+            border-color: var(--verde-matriz);
+        }
+
+        .contact-card-icon {
+            font-size: 1.65rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-card-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--blanco-limpio);
+        }
+
+        .contact-card-sub {
+            font-size: 0.72rem;
+            color: var(--verde-matriz);
+            font-weight: 500;
+        }
+
+        /* Copy Toast */
+        #toast {
+            position: fixed;
+            bottom: 5.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--verde-matriz);
+            color: #042f22;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2000;
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 1.25rem;
+            right: 1.25rem;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:active {
+            transform: scale(0.92);
+        }
+
+        /* Lightbox Overlay */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 1rem;
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-modal img {
+            max-width: 95vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .mobile-footer {
+            text-align: center;
+            padding: 2.5rem 1rem 1rem;
+            color: var(--text-subtle);
+            font-size: 0.78rem;
+        }
+
+        .mobile-footer a {
+            color: var(--verde-matriz);
+            text-decoration: none;
+        }
+
+        .pc-switch-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.85rem;
+            padding: 0.45rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-pill);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ambient Waves Canvas (Agroguardati High-Performance Smooth Gradients) -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="ambient-mesh"></div>
+
+    <div class="page-wrapper">
+
+        <!-- Top Mobile Sticky Navbar -->
+        <header class="mobile-nav">
+            <a href="#hero" class="nav-brand">
+                <img src="imagen_circular_recortada.png" alt="Matías Schvabauer" class="nav-avatar">
+                <div class="nav-title">
+                    <span class="nav-name">Matías Schvabauer</span>
+                    <span class="nav-role"><i class="fas fa-code"></i> Software & Web Dev</span>
+                </div>
+            </a>
+            <a href="https://wa.me/543404534477" target="_blank" class="nav-cta">
+                <i class="fab fa-whatsapp"></i> Chat
+            </a>
+        </header>
+
+        <!-- Quick Sticky Category Pills -->
+        <nav class="category-bar-wrapper">
+            <div class="category-bar">
+                <a href="#sobre-mi" class="category-pill"><i class="fas fa-user"></i> Sobre Mí</a>
+                <a href="#servicios" class="category-pill"><i class="fas fa-laptop-code"></i> Servicios</a>
+                <a href="#sistemas" class="category-pill"><i class="fas fa-server"></i> Sistemas</a>
+                <a href="#apps" class="category-pill"><i class="fas fa-mobile-screen"></i> Apps</a>
+                <a href="#webs" class="category-pill"><i class="fas fa-globe"></i> Webs</a>
+                <a href="#ecommerce" class="category-pill"><i class="fas fa-bag-shopping"></i> Canales</a>
+                <a href="#contacto" class="category-pill"><i class="fas fa-paper-plane"></i> Contacto</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-mobile">
+            <div class="status-badge">
+                <span class="dot"></span>
+                <span>Disponible para nuevos proyectos</span>
+            </div>
+
+            <h1 class="hero-title">Matías Schvabauer</h1>
+            <p class="hero-subtitle">Desarrollo de Software & Soluciones Web a Medida</p>
+
+            <div class="hero-tech-pills">
+                <span class="hero-tech-pill">💻 Sistemas de Gestión</span>
+                <span class="hero-tech-pill">📱 Apps Móviles</span>
+                <span class="hero-tech-pill">🌐 Sitios Web</span>
+                <span class="hero-tech-pill">⚡ E-Commerce</span>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#contacto" class="btn-main">
+                    <i class="fas fa-comments"></i> Hablemos de tu proyecto
+                </a>
+                <a href="#sistemas" class="btn-secondary">
+                    <i class="fas fa-layer-group"></i> Explorar Proyectos
+                </a>
+            </div>
+        </section>
+
+        <!-- Clientes Marquee -->
+        <div class="logos-slider-wrap">
+            <div class="logos-track">
+                <!-- Set 1 -->
+                <div class="logo-item"><img src="casadruettologo1.png" alt="Casa Druetto"></div>
+                <div class="logo-item"><img src="AGLOGOCIRC.png" alt="Agroguardati"></div>
+                <div class="logo-item"><img src="Mariño.png" alt="Mariño"></div>
+                <div class="logo-item"><img src="Minimercado Pachi.png" alt="Minimercado Pachi"></div>
+                <div class="logo-item"><img src="Kiosco Saturno.png" alt="Kiosco Saturno"></div>
+                <div class="logo-item"><img src="Kiosco Fanti'sv01.png" alt="Kiosco Fanti's"></div>
+                <div class="logo-item"><img src="LogoMorenoRevestimientos.png" alt="Moreno Revestimientos"></div>
+                <div class="logo-item"><img src="Super Mora.png" alt="Super Mora"></div>
+                <div class="logo-item"><img src="CondorLogoTicket.png" alt="Almacén Cóndor"></div>
+                <div class="logo-item"><img src="icongato.ico" alt="Distribuidora El Gato"></div>
+                <div class="logo-item"><img src="MaxikioscoNonoPatologo.png" alt="MaxiKiosco Nono Pato"></div>
+
+                <!-- Set 2 (Seamless loop) -->
+                <div class="logo-item"><img src="casadruettologo1.png" alt="Casa Druetto"></div>
+                <div class="logo-item"><img src="AGLOGOCIRC.png" alt="Agroguardati"></div>
+                <div class="logo-item"><img src="Mariño.png" alt="Mariño"></div>
+                <div class="logo-item"><img src="Minimercado Pachi.png" alt="Minimercado Pachi"></div>
+                <div class="logo-item"><img src="Kiosco Saturno.png" alt="Kiosco Saturno"></div>
+                <div class="logo-item"><img src="Kiosco Fanti'sv01.png" alt="Kiosco Fanti's"></div>
+                <div class="logo-item"><img src="LogoMorenoRevestimientos.png" alt="Moreno Revestimientos"></div>
+                <div class="logo-item"><img src="Super Mora.png" alt="Super Mora"></div>
+                <div class="logo-item"><img src="CondorLogoTicket.png" alt="Almacén Cóndor"></div>
+                <div class="logo-item"><img src="icongato.ico" alt="Distribuidora El Gato"></div>
+                <div class="logo-item"><img src="MaxikioscoNonoPatologo.png" alt="MaxiKiosco Nono Pato"></div>
+            </div>
+        </div>
+
+        <!-- Section: Sobre Mí (Collapsible) -->
+        <section id="sobre-mi" class="section-mobile container">
+            <div class="m-card">
+                <div class="m-card-header" onclick="toggleCard(this)">
+                    <div class="m-card-header-main">
+                        <div class="m-card-tags">
+                            <span class="m-tag">Perfil Profesional</span>
+                            <span class="m-tag">Ingeniería</span>
+                        </div>
+                        <h2 class="m-card-title">Sobre Mí & Enfoque</h2>
+                        <p class="m-card-snippet">Estudiante avanzado de Ingeniería en Informática</p>
+                    </div>
+                    <button class="m-toggle-btn" aria-label="Abrir detalles"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-card-body-inner">
+                        <div class="m-card-divider"></div>
+                        <p class="m-card-desc">
+                            <strong>Estudiante avanzado de Ingeniería en Informática</strong> con una sólida pasión por la resolución de problemas reales a través de la tecnología.
+                        </p>
+                        <p class="m-card-desc">
+                            Mi enfoque se centra en crear herramientas digitales que no solo funcionen, sino que optimicen procesos y aporten valor tangible: desde sitios web corporativos con diseño moderno y optimizado hasta <strong>sistemas de gestión complejos</strong> que centralizan las operaciones completas de un negocio.
+                        </p>
+                        <ul class="m-checklist">
+                            <li><i class="fas fa-check-circle"></i> Arquitectura de software moderna, escalable y mantenible</li>
+                            <li><i class="fas fa-check-circle"></i> Enfoque pragmático orientado a resultados de negocio</li>
+                            <li><i class="fas fa-check-circle"></i> Experiencia de usuario (UI/UX) ágil e intuitiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Mis Servicios -->
+        <section id="servicios" class="section-mobile container">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Capacidades</span>
+                    <h2 class="section-heading">Mis <span>Servicios</span></h2>
+                </div>
+                <span class="section-counter">6 Áreas</span>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="service-title">Desarrollo Web</h3>
+                    <p class="service-desc">Sitios rápidos, responsivos y optimizados para SEO corporativo.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-boxes-stacked"></i></div>
+                    <h3 class="service-title">Sistemas de Gestión</h3>
+                    <p class="service-desc">Control de stock, facturación electrónica y administración.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                    <h3 class="service-title">Apps de Celular</h3>
+                    <p class="service-desc">Aplicaciones móviles para gestión comercial y preventa en calle.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cart-shopping"></i></div>
+                    <h3 class="service-title">E-Commerce & Meta</h3>
+                    <p class="service-desc">Mercado Libre, Tiendas IG/FB y WhatsApp Business.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3 class="service-title">Soporte & Redes</h3>
+                    <p class="service-desc">Mantenimiento preventivo, conectividad e infraestructura.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="service-title">Software a Medida</h3>
+                    <p class="service-desc">Desarrollo desde cero adaptado a requerimientos específicos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Sistemas Destacados (Acordeón con Flechas) -->
+        <section id="sistemas" class="section-mobile container">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Software de Gestión</span>
+                    <h2 class="section-heading">Sistemas <span>Destacados</span></h2>
+                </div>
+                <span class="section-counter">3 Sistemas</span>
+            </div>
+
+            <div class="cards-list">
+                <!-- Sistema 1: Gestión de Stock -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Python</span>
+                                <span class="m-tag">SQL</span>
+                                <span class="m-tag">AFIP</span>
+                            </div>
+                            <h3 class="m-card-title">Sistema de Gestión de Stock</h3>
+                            <p class="m-card-snippet">Control de inventario, AFIP y Mercado Pago</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+                            
+                            <!-- Carousel de Capturas -->
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="g1.jpg" alt="Stock Captura 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="g2.jpg" alt="Stock Captura 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="g3.jpg" alt="Stock Captura 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="g4.jpg" alt="Stock Captura 4" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="g5.jpg" alt="Stock Captura 5" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="g6.jpg" alt="Stock Captura 6" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Solución integral diseñada para comercios y PyMEs. Permite control exacto de existencias, seguimiento de proveedores, <strong>conexión directa con AFIP para facturación electrónica</strong> y <strong>control integrado de transferencias Mercado Pago</strong>.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Facturación electrónica oficial con AFIP (CAE automático)</li>
+                                <li><i class="fas fa-check-circle"></i> Conciliación y control de transferencias Mercado Pago</li>
+                                <li><i class="fas fa-check-circle"></i> Auditoría de stock en tiempo real y alertas de reposición</li>
+                                <li><i class="fas fa-check-circle"></i> Reportes de caja, márgenes y estadísticas comerciales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistema 2: Vibras -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Python</span>
+                                <span class="m-tag">SQL</span>
+                                <span class="m-tag">Salud</span>
+                            </div>
+                            <h3 class="m-card-title">Sistema Vibras - Pacientes & Citas</h3>
+                            <p class="m-card-snippet">Expedientes clínicos y agenda interactiva</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="v1.jpg" alt="Vibras Captura 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="v2.jpg" alt="Vibras Captura 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="v3.jpg" alt="Vibras Captura 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="v4.jpg" alt="Vibras Captura 4" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Software a medida para centro de salud y bienestar. Diseñado para optimizar la recepción y el seguimiento integral de cada paciente con un flujo visual claro.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Historial clínico digitalizado y notas por sesión</li>
+                                <li><i class="fas fa-check-circle"></i> Calendario dinámico de turnos y disponibilidades</li>
+                                <li><i class="fas fa-check-circle"></i> Control de pagos, saldos y recordatorios automáticos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sistema 3: Mariano Revestimientos Presupuestos -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Python</span>
+                                <span class="m-tag">Cómputo</span>
+                                <span class="m-tag">Presupuestos</span>
+                            </div>
+                            <h3 class="m-card-title">Generador & Control de Presupuestos</h3>
+                            <p class="m-card-snippet">Mariano Revestimientos - Construcción en Seco</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="MarianoRevestimiento1.png" alt="Mariano Revestimientos 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="MarianoRevestimiento2.png" alt="Mariano Revestimientos 2" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Desarrollado para <strong>Mariano Revestimientos</strong>. Permite el cómputo paramétrico automático de placas, perfiles y fijaciones para construcción en seco, presupuestando en minutos con precisión milimétrica.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Cómputo exacto de materiales, perfilería y accesorios</li>
+                                <li><i class="fas fa-check-circle"></i> Generación instantánea de cotizaciones profesionales en PDF</li>
+                                <li><i class="fas fa-check-circle"></i> Historial de cotizaciones, estados y seguimiento de clientes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Apps de Celular -->
+        <section id="apps" class="section-mobile container">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Aplicaciones Móviles</span>
+                    <h2 class="section-heading">Apps de <span>Celular</span></h2>
+                </div>
+                <span class="section-counter">3 Apps</span>
+            </div>
+
+            <div class="cards-list">
+                <!-- App 1: Saturno Gestión -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Android</span>
+                                <span class="m-tag">Cloud</span>
+                                <span class="m-tag">Comercial</span>
+                            </div>
+                            <h3 class="m-card-title">Gestión y Control de Negocio</h3>
+                            <p class="m-card-snippet">Kiosco Saturno - Monitoreo móvil en tiempo real</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel phone-aspect" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="Saturno1.jpeg" alt="App Saturno 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Saturno2.jpeg" alt="App Saturno 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Saturno3.jpeg" alt="App Saturno 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Saturno4.jpeg" alt="App Saturno 4" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Aplicación para monitorear y administrar las operaciones del comercio desde cualquier lugar. Supervisa ventas del día, audita cajas y consulta existencias en segundos.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Monitoreo de ventas y facturación en tiempo real</li>
+                                <li><i class="fas fa-check-circle"></i> Auditoría remota de caja y movimientos</li>
+                                <li><i class="fas fa-check-circle"></i> Consulta de stock y alertas automáticas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App 2: Vendedores de Calle -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Preventa</span>
+                                <span class="m-tag">Ruta</span>
+                                <span class="m-tag">Sincronización</span>
+                            </div>
+                            <h3 class="m-card-title">Stock y Ventas para Preventistas</h3>
+                            <p class="m-card-snippet">Toma de pedidos ágil y catálogo para calle</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel phone-aspect" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="Saturno5.jpeg" alt="App Vendedores 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Saturno6.jpeg" alt="App Vendedores 2" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Herramienta ágil diseñada específicamente para fuerza de ventas en ruta. Facilita la carga inmediata de pedidos frente al cliente con catálogo interactivo y precios actualizados.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Carga rápida de pedidos sin demoras en el punto de venta</li>
+                                <li><i class="fas fa-check-circle"></i> Catálogo dinámico con listas de precios y stock</li>
+                                <li><i class="fas fa-check-circle"></i> Sincronización directa con el servidor central</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App 3: Mariano Revestimientos Móvil -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Cotizador Móvil</span>
+                                <span class="m-tag">En Obra</span>
+                            </div>
+                            <h3 class="m-card-title">Cotizador Móvil de Obra</h3>
+                            <p class="m-card-snippet">Mariano Revestimientos - Presupuestos en mano</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel phone-aspect" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="MarianoRevestimientoCelular.jpeg" alt="Cotizador Celular" loading="lazy"></div>
+                                </div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Versión para celulares pensada para el trabajo en el terreno. Permite medir y calcular cotizaciones completas en obra con el cliente presente.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Cómputo paramétrico directo en obra</li>
+                                <li><i class="fas fa-check-circle"></i> Envío instantáneo de propuestas por WhatsApp o email</li>
+                                <li><i class="fas fa-check-circle"></i> Listado de presupuestos emitidos y en seguimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Proyectos Web Destacados -->
+        <section id="webs" class="section-mobile container">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Desarrollo Web</span>
+                    <h2 class="section-heading">Webs <span>Destacadas</span></h2>
+                </div>
+                <span class="section-counter">4 Sitios</span>
+            </div>
+
+            <div class="cards-list">
+                <!-- Web 1: Casa Druetto -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">E-Commerce</span>
+                                <span class="m-tag">Agroindustria</span>
+                                <span class="m-tag">Catálogo</span>
+                            </div>
+                            <h3 class="m-card-title">Casa Druetto</h3>
+                            <p class="m-card-snippet">E-Commerce y catálogo con +75 años de trayectoria</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="Casadruettoweb1.png" alt="Casa Druetto 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Casadruettoweb2.png" alt="Casa Druetto 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Casadruettoweb3.png" alt="Casa Druetto 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Casadruettoweb4.png" alt="Casa Druetto 4" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Plataforma de e-commerce y catálogo digital para empresa referente del sector agropecuario con más de 75 años de historia. Venta de maquinaria agrícola, agricultura de precisión, repuestos y drones DJI con envíos a todo el país.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Tienda online con carrito de compras y cotizaciones</li>
+                                <li><i class="fas fa-check-circle"></i> Catálogo dinámico con miles de repuestos y filtros</li>
+                                <li><i class="fas fa-check-circle"></i> Diseño responsivo y optimización SEO integral</li>
+                            </ul>
+
+                            <a href="https://casadruetto.com.ar" target="_blank" rel="noopener noreferrer" class="m-card-link">
+                                Visitar casadruetto.com.ar <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web 2: Agroguardati -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Corporativo</span>
+                                <span class="m-tag">Maquinaria</span>
+                                <span class="m-tag">Catálogo</span>
+                            </div>
+                            <h3 class="m-card-title">Agroguardati</h3>
+                            <p class="m-card-snippet">Soluciones integrales para el sector agropecuario</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="Agroguardatiweb1.png" alt="Agroguardati 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Agroguardatiweb2.png" alt="Agroguardati 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Agroguardatiweb3.png" alt="Agroguardati 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Agroguardatiweb4.png" alt="Agroguardati 4" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="Agroguardatiweb5.png" alt="Agroguardati 5" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Sitio web institucional y comercial para empresa de maquinaria agrícola, insumos y servicios. Catálogo de equipos nuevos y usados, visualización de fichas técnicas y contacto directo.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Catálogo interactivo de tractores, cosechadoras y tolvas</li>
+                                <li><i class="fas fa-check-circle"></i> Versión móvil específica ultrarrápida</li>
+                                <li><i class="fas fa-check-circle"></i> Integración directa a WhatsApp con el equipo de ventas</li>
+                            </ul>
+
+                            <a href="https://agroguardati.com.ar" target="_blank" rel="noopener noreferrer" class="m-card-link">
+                                Visitar agroguardati.com.ar <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web 3: Mariño en Seco -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Corporativo</span>
+                                <span class="m-tag">Construcción</span>
+                                <span class="m-tag">SEO</span>
+                            </div>
+                            <h3 class="m-card-title">Mariño - Construcción en Seco</h3>
+                            <p class="m-card-snippet">Distribuidora líder y catálogo de materiales</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="m1.jpg" alt="Mariño 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="m2.jpg" alt="Mariño 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="m3.jpg" alt="Mariño 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="m4.jpg" alt="Mariño 4" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="m5.jpg" alt="Mariño 5" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Portal web para empresa distribuidora de materiales para construcción en seco. Catálogo online de perfilería, placas y accesorios con sólida presencia de marca.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Catálogo completo de líneas de producto</li>
+                                <li><i class="fas fa-check-circle"></i> Optimización SEO para captación en buscadores</li>
+                                <li><i class="fas fa-check-circle"></i> Solicitud de cotización ágil vía web</li>
+                            </ul>
+
+                            <a href="https://mariñoenseco.com" target="_blank" rel="noopener noreferrer" class="m-card-link">
+                                Visitar mariñoenseco.com <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web 4: Vibras Gálvez -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag">Salud & Bienestar</span>
+                                <span class="m-tag">Institucional</span>
+                            </div>
+                            <h3 class="m-card-title">Vibras Gálvez - Bienestar</h3>
+                            <p class="m-card-snippet">Centro interdisciplinario de salud y estética</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="m-carousel" data-carousel>
+                                <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                                <div class="m-carousel-track">
+                                    <div class="m-carousel-slide"><img src="vp1.jpg" alt="Vibras Web 1" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="vp2.jpg" alt="Vibras Web 2" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="vp3.jpg" alt="Vibras Web 3" loading="lazy"></div>
+                                    <div class="m-carousel-slide"><img src="vp4.jpg" alt="Vibras Web 4" loading="lazy"></div>
+                                </div>
+                                <button class="m-carousel-btn prev" onclick="moveCarousel(this, -1)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="m-carousel-btn next" onclick="moveCarousel(this, 1)"><i class="fas fa-chevron-right"></i></button>
+                                <div class="m-carousel-dots"></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Plataforma moderna para centro de salud. Integración de servicios profesionales, instalaciones y contacto optimizado para agendamiento.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Presentación de especialidades médicas y bienestar</li>
+                                <li><i class="fas fa-check-circle"></i> Canales rápidos de turnos online</li>
+                                <li><i class="fas fa-check-circle"></i> Diseño estético con identidad corporativa clara</li>
+                            </ul>
+
+                            <a href="https://vibrasgalvez.online" target="_blank" rel="noopener noreferrer" class="m-card-link">
+                                Visitar vibrasgalvez.online <i class="fas fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: E-Commerce & Canales Digitales -->
+        <section id="ecommerce" class="section-mobile container">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Ventas Digitales</span>
+                    <h2 class="section-heading">E-Commerce & <span>Canales</span></h2>
+                </div>
+                <span class="section-counter">2 Plataformas</span>
+            </div>
+
+            <div class="cards-list">
+                <!-- Canal 1: Mercado Libre -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag amber">Mercado Libre</span>
+                                <span class="m-tag">E-Commerce</span>
+                            </div>
+                            <h3 class="m-card-title">Mercado Libre Comercial</h3>
+                            <p class="m-card-snippet">Puesta a punto, SEO en publicaciones y envíos</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="channel-logos-row">
+                                <div class="channel-bubble meli">
+                                    <img src="MLlogo1.png" alt="Mercado Libre" style="width: 26px; height: 26px; object-fit: contain;">
+                                </div>
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #FFE600;">Ecosistema Mercado Libre</span>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Puesta en marcha completa de tu cuenta comercial para comercializar productos con máxima visibilidad en la plataforma líder de Latinoamérica.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Configuración de cuenta vendedora y medios de cobro</li>
+                                <li><i class="fas fa-check-circle"></i> Publicaciones optimizadas con SEO interno y fichas técnicas</li>
+                                <li><i class="fas fa-check-circle"></i> Logística integrada con Mercado Envíos y tiempos de despacho</li>
+                                <li><i class="fas fa-check-circle"></i> Asesoramiento estratégico para medallas verdes de reputación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canal 2: Meta Business Suite -->
+                <div class="m-card">
+                    <div class="m-card-header" onclick="toggleCard(this)">
+                        <div class="m-card-header-main">
+                            <div class="m-card-tags">
+                                <span class="m-tag pink">Instagram</span>
+                                <span class="m-tag">Facebook</span>
+                                <span class="m-tag">WhatsApp</span>
+                            </div>
+                            <h3 class="m-card-title">Meta Business Suite</h3>
+                            <p class="m-card-snippet">Tienda online en IG/FB, WhatsApp Business & Ads</p>
+                        </div>
+                        <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                    </div>
+                    <div class="m-card-body">
+                        <div class="m-card-body-inner">
+                            <div class="m-card-divider"></div>
+
+                            <div class="channel-logos-row">
+                                <div class="channel-bubble" style="color: #1877F2; font-size: 1.3rem;"><i class="fab fa-facebook"></i></div>
+                                <div class="channel-bubble" style="color: #E1306C; font-size: 1.3rem;"><i class="fab fa-instagram"></i></div>
+                                <div class="channel-bubble" style="color: #25D366; font-size: 1.3rem;"><i class="fab fa-whatsapp"></i></div>
+                            </div>
+
+                            <p class="m-card-desc">
+                                Vinculación integral del ecosistema de Meta para exhibir catálogo comercial, habilitar compras por mensaje y potenciar ventas directas.
+                            </p>
+
+                            <ul class="m-checklist">
+                                <li><i class="fas fa-check-circle"></i> Carga y sincronización de catálogo con carrito en Instagram y Facebook</li>
+                                <li><i class="fas fa-check-circle"></i> WhatsApp Business profesional con respuestas automáticas y catálogo</li>
+                                <li><i class="fas fa-check-circle"></i> Configuración de campañas publicitarias iniciales (Meta Ads)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Próximos Proyectos -->
+        <section id="proximos" class="section-mobile container">
+            <div class="section-header">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Innovación</span>
+                    <h2 class="section-heading">Próximos <span>Proyectos</span></h2>
+                </div>
+                <span class="section-counter">1 En Curso</span>
+            </div>
+
+            <div class="m-card">
+                <div class="m-card-header" onclick="toggleCard(this)">
+                    <div class="m-card-header-main">
+                        <div class="m-card-tags">
+                            <span class="m-tag pink">⚡ En Progreso</span>
+                            <span class="m-tag">App Móvil</span>
+                            <span class="m-tag">UI / UX</span>
+                        </div>
+                        <h3 class="m-card-title">Evolución - App en Progreso</h3>
+                        <p class="m-card-snippet">Nueva solución móvil con arquitectura moderna</p>
+                    </div>
+                    <button class="m-toggle-btn" aria-label="Desplegar"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                <div class="m-card-body">
+                    <div class="m-card-body-inner">
+                        <div class="m-card-divider"></div>
+
+                        <div class="m-carousel phone-aspect" data-carousel>
+                            <span class="tap-zoom-hint"><i class="fas fa-magnifying-glass-plus"></i> Tocá para ampliar</span>
+                            <div class="m-carousel-track">
+                                <div class="m-carousel-slide"><img src="Evolucion.jpeg" alt="Evolución App en Progreso" loading="lazy"></div>
+                            </div>
+                        </div>
+
+                        <p class="m-card-desc">
+                            Nueva solución móvil actualmente en fase de diseño e implementación activa. Orientada a simplificar y acelerar flujos de trabajo con sincronización ágil.
+                        </p>
+
+                        <ul class="m-checklist">
+                            <li><i class="fas fa-check-circle"></i> Interfaz moderna centrada en la experiencia de usuario</li>
+                            <li><i class="fas fa-check-circle"></i> Arquitectura escalable y sincronización inteligente</li>
+                            <li><i class="fas fa-check-circle"></i> Próximo lanzamiento en fase de pruebas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Contacto -->
+        <section id="contacto" class="section-mobile container" style="text-align: center;">
+            <div class="section-header" style="justify-content: center; text-align: center; margin-bottom: 0.5rem;">
+                <div class="section-title-wrap" style="align-items: center;">
+                    <span class="section-tag">Contacto Directo</span>
+                    <h2 class="section-heading">Empecemos a <span>Trabajar</span></h2>
+                </div>
+            </div>
+            <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 320px; margin: 0 auto 1rem auto;">
+                ¿Tenés una idea o proyecto para tu negocio? Escribime y lo hacemos realidad.
+            </p>
+
+            <div class="contact-grid">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/543404534477" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-card-icon" style="color: #25D366;"><i class="fab fa-whatsapp"></i></div>
+                    <span class="contact-card-title">WhatsApp</span>
+                    <span class="contact-card-sub">+54 (3404) 53-4477</span>
+                </a>
+
+                <!-- Email (Copy) -->
+                <div class="contact-card" onclick="copyEmail()">
+                    <div class="contact-card-icon" style="color: var(--verde-matriz);"><i class="fas fa-envelope"></i></div>
+                    <span class="contact-card-title">Email</span>
+                    <span class="contact-card-sub" id="copy-email-text">Tocá para copiar</span>
+                </div>
+
+                <!-- CV PDF -->
+                <a href="https://github.com/matiasschvabauer/portafolio/blob/main/Schvabauer_MatiasCV.pdf" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-card-icon" style="color: #EC4899;"><i class="fas fa-file-pdf"></i></div>
+                    <span class="contact-card-title">Curriculum</span>
+                    <span class="contact-card-sub">Ver PDF Completo</span>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/Zike420" target="_blank" rel="noopener noreferrer" class="contact-card">
+                    <div class="contact-card-icon" style="color: #CBD5E1;"><i class="fab fa-github"></i></div>
+                    <span class="contact-card-title">GitHub</span>
+                    <span class="contact-card-sub">Explorar Código</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Mobile Footer -->
+        <footer class="mobile-footer">
+            <p>&copy; 2026 Matías Schvabauer. Todos los derechos reservados.</p>
+            <div>
+                <a href="index.html?force=pc" class="pc-switch-btn">
+                    <i class="fas fa-desktop"></i> Ver versión de escritorio (PC)
+                </a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/543404534477" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Matías">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Toast Notification -->
+    <div id="toast">¡Email copiado al portapapeles!</div>
+
+    <!-- Lightbox Zoom Modal -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <span class="lightbox-close"><i class="fas fa-times"></i></span>
+        <img id="lightbox-img" src="" alt="Zoom Image" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // --- 1. ACCORDION / TOGGLE CARD MECHANISM ---
+        function toggleCard(headerElement) {
+            const card = headerElement.closest('.m-card');
+            const isOpen = card.classList.contains('is-open');
+
+            // Toggle current card
+            card.classList.toggle('is-open');
+
+            // If opening, ensure carousels inside are correctly initialized
+            if (!isOpen) {
+                const carousels = card.querySelectorAll('[data-carousel]');
+                carousels.forEach(c => updateCarouselDots(c));
+            }
+        }
+
+        // --- 2. TOUCH CAROUSEL SYSTEM ---
+        function initCarousels() {
+            document.querySelectorAll('[data-carousel]').forEach(carousel => {
+                const slides = carousel.querySelectorAll('.m-carousel-slide');
+                const dotsContainer = carousel.querySelector('.m-carousel-dots');
+                const track = carousel.querySelector('.m-carousel-track');
+                const prevBtn = carousel.querySelector('.m-carousel-btn.prev');
+                const nextBtn = carousel.querySelector('.m-carousel-btn.next');
+
+                if (slides.length <= 1) {
+                    if (dotsContainer) dotsContainer.style.display = 'none';
+                    if (prevBtn) prevBtn.style.display = 'none';
+                    if (nextBtn) nextBtn.style.display = 'none';
+                    return;
+                }
+
+                carousel.dataset.index = "0";
+
+                // Generate dots
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    slides.forEach((_, idx) => {
+                        const dot = document.createElement('div');
+                        dot.className = `m-carousel-dot ${idx === 0 ? 'active' : ''}`;
+                        dot.onclick = (e) => {
+                            e.stopPropagation();
+                            goToSlide(carousel, idx);
+                        };
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+
+                // Touch swipe support
+                let startX = 0;
+                let currentX = 0;
+
+                carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                carousel.addEventListener('touchmove', (e) => {
+                    currentX = e.touches[0].clientX;
+                }, { passive: true });
+
+                carousel.addEventListener('touchend', () => {
+                    const diff = startX - currentX;
+                    if (Math.abs(diff) > 40 && currentX !== 0) {
+                        if (diff > 0) moveCarousel(carousel, 1);
+                        else moveCarousel(carousel, -1);
+                    }
+                    startX = 0;
+                    currentX = 0;
+                });
+
+                // Lightbox on slide tap
+                slides.forEach(slide => {
+                    const img = slide.querySelector('img');
+                    if (img) {
+                        img.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            openLightbox(img.src);
+                        });
+                    }
+                });
+            });
+        }
+
+        function moveCarousel(element, direction) {
+            if (event) event.stopPropagation();
+            const carousel = element.closest('[data-carousel]');
+            const slides = carousel.querySelectorAll('.m-carousel-slide');
+            let idx = parseInt(carousel.dataset.index || "0", 10);
+            idx = (idx + direction + slides.length) % slides.length;
+            goToSlide(carousel, idx);
+        }
+
+        function goToSlide(carousel, idx) {
+            const track = carousel.querySelector('.m-carousel-track');
+            const dots = carousel.querySelectorAll('.m-carousel-dot');
+            carousel.dataset.index = idx.toString();
+            track.style.transform = `translateX(-${idx * 100}%)`;
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === idx);
+            });
+        }
+
+        function updateCarouselDots(carousel) {
+            const idx = parseInt(carousel.dataset.index || "0", 10);
+            goToSlide(carousel, idx);
+        }
+
+        // --- 3. LIGHTBOX SYSTEM ---
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // --- 4. COPY EMAIL TOAST ---
+        function copyEmail() {
+            const email = "matiasschvabauer@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('toast');
+                const subText = document.getElementById('copy-email-text');
+                toast.classList.add('show');
+                if (subText) subText.innerText = "¡Copiado!";
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    if (subText) subText.innerText = "Tocá para copiar";
+                }, 2200);
+            }).catch(() => {
+                window.location.href = "mailto:" + email;
+            });
+        }
+
+        // --- 5. HIGH-PERFORMANCE SMOOTH WAVES CANVAS (Agroguardati Style, Portfolio Colors) ---
+        (function initWaveCanvas() {
+            const canvas = document.getElementById('bg-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let time = 0;
+            let animationFrameId;
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resize, { passive: true });
+            resize();
+
+            function drawWave(yOffset, amplitude, frequency, phase, colorStart, colorEnd, opacity) {
+                ctx.beginPath();
+                ctx.moveTo(0, height);
+
+                for (let x = 0; x <= width; x += 25) {
+                    let y = yOffset 
+                          + Math.sin(x * frequency + time + phase) * amplitude 
+                          + Math.cos(x * frequency * 0.75 - time * 0.7 + phase) * amplitude * 0.45;
+                    ctx.lineTo(x, y);
+                }
+
+                ctx.lineTo(width, height);
+                ctx.lineTo(0, height);
+                ctx.closePath();
+
+                const grad = ctx.createLinearGradient(0, yOffset - amplitude * 2, 0, height);
+                grad.addColorStop(0, colorStart);
+                grad.addColorStop(1, colorEnd);
+
+                ctx.globalAlpha = opacity;
+                ctx.fillStyle = grad;
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+            }
+
+            function animate() {
+                // Clear with dark void tone
+                ctx.fillStyle = '#0B1120';
+                ctx.fillRect(0, 0, width, height);
+
+                time += 0.008;
+
+                // Subtle waves with portfolio brand colors
+                drawWave(height * 0.45, 45, 0.0035, 0.0, '#0F172A', '#0B1120', 0.8);
+                drawWave(height * 0.65, 55, 0.0042, 2.1, '#13213c', '#0B1120', 0.5);
+                drawWave(height * 0.82, 60, 0.0030, 4.2, 'rgba(16, 185, 129, 0.2)', '#0B1120', 0.25);
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            animate();
+        })();
+
+        // --- 6. INITIALIZATION & SCROLL HIGHLIGHT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initCarousels();
+
+            // Open first featured system by default so user sees interactivity immediately
+            const firstSystemCard = document.querySelector('#sistemas .m-card');
+            if (firstSystemCard) {
+                firstSystemCard.classList.add('is-open');
+                const c = firstSystemCard.querySelector('[data-carousel]');
+                if (c) updateCarouselDots(c);
+            }
+
+            // Category pill active indicator on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const pills = document.querySelectorAll('.category-pill');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const scrollY = window.pageYOffset;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 140;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                pills.forEach(pill => {
+                    pill.classList.toggle('active', pill.getAttribute('href') === `#${current}`);
+                });
+            }, { passive: true });
+        });
+    </script>
+</body>
+
+</html>
